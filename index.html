@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Comprehensive policy framework addressing urban concentration vulnerabilities through bioregional development">
+  <meta name="color-scheme" content="dark light">
+  <title>Bioregional Development: Strategic Resilience for the 21st Century</title>
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM
+       Purpose: Archival-quality styling with regenerative aesthetics
+       Extend: Modify CSS variables for different themes
+       ========================================================================== */
+    :root {
+      --bg-primary: #070A12;
+      --bg-secondary: #0B1022;
+      --bg-tertiary: #0F1428;
+      --surface-glass: rgba(255, 255, 255, 0.06);
+      --surface-glass-hover: rgba(255, 255, 255, 0.09);
+      --text-primary: rgba(255, 255, 255, 0.95);
+      --text-secondary: rgba(255, 255, 255, 0.72);
+      --text-tertiary: rgba(255, 255, 255, 0.55);
+      --accent-cyan: #8AE6FF;
+      --accent-green: #B8FF8A;
+      --accent-coral: #FFB86B;
+      --accent-rose: #FF6B88;
+      --accent-blue: #8ABAFF;
+      --line-subtle: rgba(255, 255, 255, 0.08);
+      --line-medium: rgba(255, 255, 255, 0.15);
+      --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.4);
+      --shadow-hard: 0 16px 64px rgba(0, 0, 0, 0.6);
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 24px;
+      --blur-light: 8px;
+      --blur-heavy: 20px;
+      --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, "Cascadia Code", "Courier New", monospace;
+      --max-width: 1200px;
+      --nav-height: 72px;
+      --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #F7F9FF;
+      --bg-secondary: #EDF1FC;
+      --bg-tertiary: #E3E9F7;
+      --surface-glass: rgba(0, 0, 0, 0.04);
+      --surface-glass-hover: rgba(0, 0, 0, 0.07);
+      --text-primary: rgba(0, 0, 0, 0.90);
+      --text-secondary: rgba(0, 0, 0, 0.68);
+      --text-tertiary: rgba(0, 0, 0, 0.52);
+      --line-subtle: rgba(0, 0, 0, 0.08);
+      --line-medium: rgba(0, 0, 0, 0.15);
+      --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.12);
+      --shadow-hard: 0 16px 64px rgba(0, 0, 0, 0.18);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      position: relative;
+    }
+
+    /* ==========================================================================
+       ATMOSPHERIC BACKGROUNDS
+       Purpose: Photorealistic particle effects and depth
+       ========================================================================== */
+    .atmosphere {
+      position: fixed;
+      inset: 0;
+      z-index: -100;
+      pointer-events: none;
+    }
+
+    .nebula-layer {
+      position: absolute;
+      inset: -10%;
+      background:
+        radial-gradient(1200px 800px at 15% 20%, rgba(138, 230, 255, 0.12), transparent 55%),
+        radial-gradient(1000px 700px at 75% 30%, rgba(184, 255, 138, 0.10), transparent 60%),
+        radial-gradient(900px 600px at 50% 85%, rgba(255, 107, 136, 0.08), transparent 65%),
+        radial-gradient(800px 900px at 85% 15%, rgba(138, 186, 255, 0.09), transparent 70%);
+      opacity: 0.9;
+      filter: blur(1px);
+      animation: nebula-drift 120s ease-in-out infinite;
+    }
+
+    @keyframes nebula-drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(2%, -1%) scale(1.02); }
+      66% { transform: translate(-1%, 2%) scale(0.98); }
+    }
+
+    #particleCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .gradient-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+        rgba(7, 10, 18, 0) 0%,
+        rgba(7, 10, 18, 0.3) 50%,
+        rgba(7, 10, 18, 0.6) 100%);
+    }
+
+    /* ==========================================================================
+       NAVIGATION
+       Purpose: Sticky header with TOC
+       ========================================================================== */
+    .nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      height: var(--nav-height);
+      background: rgba(7, 10, 18, 0.85);
+      backdrop-filter: blur(var(--blur-heavy));
+      border-bottom: 1px solid var(--line-subtle);
+      box-shadow: var(--shadow-soft);
+    }
+
+    [data-theme="light"] .nav-wrapper {
+      background: rgba(247, 249, 255, 0.85);
+    }
+
+    nav {
+      max-width: var(--max-width);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 8px 16px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+      background: var(--surface-glass);
+    }
+
+    .nav-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    /* ==========================================================================
+       BUTTONS & INTERACTIVE ELEMENTS
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--surface-glass);
+      color: var(--text-primary);
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background: var(--surface-glass-hover);
+      border-color: var(--line-medium);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #000;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.1);
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    /* ==========================================================================
+       MAIN LAYOUT
+       ========================================================================== */
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px 120px;
+    }
+
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--surface-glass);
+      border: 1px solid var(--line-subtle);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 0 0 24px;
+      background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-lead {
+      font-size: clamp(18px, 2.5vw, 22px);
+      color: var(--text-secondary);
+      max-width: 800px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ==========================================================================
+       CONTENT CARDS
+       ========================================================================== */
+    .card {
+      background: var(--surface-glass);
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(var(--blur-light));
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg,
+        rgba(138, 230, 255, 0.1),
+        rgba(184, 255, 138, 0.08),
+        rgba(138, 186, 255, 0.09));
+      opacity: 0;
+      border-radius: inherit;
+      z-index: -1;
+      transition: opacity var(--transition-smooth);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .card h2 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--text-primary);
+      margin: 32px 0 16px;
+    }
+
+    .card h3:first-child {
+      margin-top: 0;
+    }
+
+    .card h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      margin: 24px 0 12px;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      margin: 16px 0;
+      line-height: 1.7;
+    }
+
+    .card ul, .card ol {
+      margin: 16px 0;
+      padding-left: 24px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .card li {
+      margin: 8px 0;
+    }
+
+    .card strong, .card b {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: var(--surface-glass);
+      border: 1px solid var(--line-subtle);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--line-subtle);
+      margin: 32px 0;
+    }
+
+    /* ==========================================================================
+       COLLAPSIBLE SECTIONS
+       ========================================================================== */
+    details {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-md);
+      padding: 0;
+      margin: 16px 0;
+      transition: all var(--transition-smooth);
+    }
+
+    details[open] {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--line-medium);
+    }
+
+    summary {
+      padding: 16px 20px;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: '›';
+      font-size: 24px;
+      transition: transform var(--transition-fast);
+      opacity: 0.6;
+    }
+
+    details[open] summary::after {
+      transform: rotate(90deg);
+    }
+
+    .details-content {
+      padding: 0 20px 20px;
+    }
+
+    /* ==========================================================================
+       TABLE OF CONTENTS
+       ========================================================================== */
+    .toc {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px);
+      background: var(--surface-glass);
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      backdrop-filter: blur(var(--blur-light));
+      max-height: calc(100vh - var(--nav-height) - 48px);
+      overflow-y: auto;
+    }
+
+    .toc h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-list li {
+      margin: 0;
+    }
+
+    .toc-list a {
+      display: block;
+      padding: 8px 12px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+    }
+
+    .toc-list a:hover {
+      color: var(--text-primary);
+      background: var(--surface-glass);
+    }
+
+    .toc-list a.active {
+      color: var(--accent-cyan);
+      background: rgba(138, 230, 255, 0.1);
+    }
+
+    /* ==========================================================================
+       GRID LAYOUTS
+       ========================================================================== */
+    .grid {
+      display: grid;
+      gap: 32px;
+      margin: 48px 0;
+    }
+
+    .grid-2 {
+      grid-template-columns: 1fr;
+    }
+
+    .grid-3 {
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 2fr 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* ==========================================================================
+       CALLOUT BOXES
+       ========================================================================== */
+    .callout {
+      padding: 20px 24px;
+      border-radius: var(--radius-md);
+      border-left: 4px solid;
+      margin: 24px 0;
+    }
+
+    .callout-info {
+      background: rgba(138, 230, 255, 0.08);
+      border-color: var(--accent-cyan);
+    }
+
+    .callout-success {
+      background: rgba(184, 255, 138, 0.08);
+      border-color: var(--accent-green);
+    }
+
+    .callout-warning {
+      background: rgba(255, 184, 107, 0.08);
+      border-color: var(--accent-coral);
+    }
+
+    .callout-danger {
+      background: rgba(255, 107, 136, 0.08);
+      border-color: var(--accent-rose);
+    }
+
+    .callout h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .callout p {
+      margin: 0;
+    }
+
+    /* ==========================================================================
+       STAT CARDS
+       ========================================================================== */
+    .stat-card {
+      text-align: center;
+      padding: 24px;
+      background: var(--surface-glass);
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-md);
+    }
+
+    .stat-value {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--accent-cyan);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       CITATIONS
+       ========================================================================== */
+    .citation {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    .citation a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+
+    .citation a:hover {
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    footer {
+      border-top: 1px solid var(--line-subtle);
+      margin-top: 80px;
+      padding: 48px 0;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    [data-theme="light"] footer {
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    .footer-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .footer-section h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-section p, .footer-section li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid var(--line-subtle);
+      text-align: center;
+      color: var(--text-tertiary);
+      font-size: 13px;
+    }
+
+    /* ==========================================================================
+       ACCESSIBILITY
+       ========================================================================== */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-cyan);
+      outline-offset: 2px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE
+       ========================================================================== */
+    @media (max-width: 768px) {
+      :root {
+        --nav-height: 64px;
+      }
+
+      nav {
+        padding: 0 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      main {
+        padding: 0 16px 80px;
+      }
+
+      .hero {
+        padding: 48px 0 40px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .toc {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       ANIMATIONS
+       ========================================================================== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    /* ==========================================================================
+       PRINT STYLES
+       ========================================================================== */
+    @media print {
+      .atmosphere, .nav-wrapper, .nav-controls, .btn, footer {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+        color: black;
+      }
+
+      .card {
+        border: 1px solid #ccc;
+        box-shadow: none;
+        page-break-inside: avoid;
+      }
+
+      a {
+        color: black;
+        text-decoration: underline;
+      }
+
+      .citation::after {
+        content: " (" attr(href) ")";
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Atmospheric Background -->
+  <div class="atmosphere">
+    <div class="nebula-layer"></div>
+    <canvas id="particleCanvas"></canvas>
+    <div class="gradient-overlay"></div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-wrapper">
+    <nav>
+      <a href="#" class="nav-brand">
+        <span>🌍</span>
+        <span>Bioregional Development</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#executive-summary">Summary</a></li>
+        <li><a href="#nuclear-vulnerability">Nuclear Risk</a></li>
+        <li><a href="#ecological-crisis">Ecology</a></li>
+        <li><a href="#viable-alternatives">Alternatives</a></li>
+        <li><a href="#policy-instruments">Policy Tools</a></li>
+        <li><a href="#implementation">Implementation</a></li>
+      </ul>
+
+      <div class="nav-controls">
+        <button class="btn theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span id="themeIcon">☀️</span>
+        </button>
+        <button class="btn" id="saveProgress">💾 Save Progress</button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-badge">
+        <span>🔬</span>
+        <span>Evidence-Based Policy Framework</span>
+      </div>
+      <h1>Population Concentration:<br>A Strategic Vulnerability</h1>
+      <p class="hero-lead">
+        Urban concentration creates dual catastrophic risks—nuclear vulnerability and ecological collapse—
+        while distributed bioregional development offers a transformative solution to both crises simultaneously.
+      </p>
+      <div class="hero-cta">
+        <a href="#executive-summary" class="btn btn-primary">Read Executive Summary</a>
+        <button class="btn" id="downloadBtn">📥 Download PDF</button>
+        <button class="btn" id="shareBtn">🔗 Share Document</button>
+      </div>
+    </section>
+
+    <!-- Stats Overview -->
+    <div class="grid grid-3">
+      <div class="stat-card fade-in">
+        <span class="stat-value">60%</span>
+        <span class="stat-label">Global population in cities</span>
+      </div>
+      <div class="stat-card fade-in" style="animation-delay: 0.1s;">
+        <span class="stat-value">73%</span>
+        <span class="stat-label">Wildlife population decline</span>
+      </div>
+      <div class="stat-card fade-in" style="animation-delay: 0.2s;">
+        <span class="stat-value">89 sec</span>
+        <span class="stat-label">Doomsday Clock to midnight</span>
+      </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-2">
+      <!-- Main Column -->
+      <div>
+        <!-- Executive Summary -->
+        <section id="executive-summary" class="card fade-in">
+          <div class="card-header">
+            <h2>Executive Summary</h2>
+            <span class="badge">Policy Brief</span>
+          </div>
+
+          <p>
+            Nearly <strong>60% of humanity now lives in cities</strong>, with projections reaching 68% by 2050.
+            This unprecedented concentration creates dual catastrophic vulnerabilities that policymakers have largely ignored:
+          </p>
+
+          <div class="callout callout-danger">
+            <h4>Critical Finding</h4>
+            <p>
+              Even a "limited" 100-megaton nuclear exchange would kill <strong>10-56 million people</strong> in urban areas,
+              while urbanization drives <strong>73% wildlife population decline</strong> and threatens
+              <strong>1 million species with extinction</strong>.
+            </p>
+          </div>
+
+          <p>
+            However, proven bioregional alternatives—from Finland's distributed settlement policies to ecovillages
+            achieving <strong>50% lower ecological footprints</strong>—demonstrate that strategic resilience and
+            planetary regeneration can be achieved together through deliberate policy intervention.
+          </p>
+
+          <h3>Key Insights for Decision-Makers</h3>
+
+          <details open>
+            <summary>Structural Connection Between Crises</summary>
+            <div class="details-content">
+              <p>
+                The nuclear and ecological crises are structurally linked through concentration patterns.
+                Addressing both requires addressing the underlying spatial organization of civilization
+                rather than treating symptoms separately.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Resilience vs. Efficiency Trade-off</summary>
+            <div class="details-content">
+              <p>
+                Distributed development is not economic sacrifice but reallocation toward genuine resilience.
+                The efficiency gains from agglomeration come at the cost of catastrophic vulnerability
+                that conventional economic analysis ignores.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Democratic Alignment</summary>
+            <div class="details-content">
+              <p>
+                Citizen preferences already favor distributed living. When <strong>48% of Americans</strong>
+                prefer rural or small-town settings but infrastructure and economic barriers prevent realization,
+                policy change aligns democratic preference with strategic necessity.
+              </p>
+            </div>
+          </details>
+        </section>
+
+        <!-- Nuclear Vulnerability -->
+        <section id="nuclear-vulnerability" class="card fade-in">
+          <div class="card-header">
+            <h2>The Nuclear Targeting Paradox</h2>
+            <span class="badge">🔴 Critical Risk</span>
+          </div>
+
+          <p>
+            The fundamental logic of nuclear deterrence relies on population concentration as the "hostage value"
+            underlying Mutual Assured Destruction. Yet this same concentration creates catastrophic vulnerability
+            that policymakers have largely ignored since the Cold War's end.
+          </p>
+
+          <h3>Current Concentration Statistics</h3>
+
+          <p>
+            The World Bank reports that cities now house <strong>4.5+ billion people</strong> globally,
+            with megacities of 10+ million inhabitants growing fastest. In the United States:
+          </p>
+
+          <ul>
+            <li><strong>73% of the population</strong> lives in urban areas</li>
+            <li><strong>87% of physicians</strong> practice in cities</li>
+            <li>Creating compounding vulnerability where survivors of nuclear attack would face medical system collapse</li>
+          </ul>
+
+          <div class="callout callout-danger">
+            <h4>Casualty Modeling Results</h4>
+            <p>
+              Princeton University analysis of three hypothetical 100-megaton attacks found casualties ranging from
+              <strong>7.3-56 million deaths</strong> depending on targeting strategy. Even "counterforce" strategies
+              targeting military installations produce mass civilian death because "most military-industrial targets
+              are located in major urban areas."
+            </p>
+          </div>
+
+          <h3>Current Threat Environment</h3>
+
+          <p>
+            These calculations are urgent rather than abstract. The Bulletin of Atomic Scientists set the
+            <strong>Doomsday Clock at 89 seconds to midnight</strong> in 2025—the closest in its 78-year history.
+          </p>
+
+          <details>
+            <summary>Historical Close Calls</summary>
+            <div class="details-content">
+              <p>
+                Researchers have documented <strong>at least 22 very close nuclear misses</strong> since 1945:
+              </p>
+              <ul>
+                <li>
+                  <strong>Cuban Missile Crisis (1962):</strong> Soviet submarine captain Valentin Savitsky decided
+                  to fire a nuclear torpedo at U.S. ships—only Vasili Arkhipov's refusal prevented launch
+                </li>
+                <li>
+                  <strong>1983 False Alarm:</strong> Soviet Lieutenant Colonel Stanislav Petrov correctly assessed
+                  a satellite warning of five incoming U.S. missiles as a false alarm, preventing retaliatory launch
+                </li>
+              </ul>
+              <p>
+                Individual judgment calls have repeatedly stood between civilization and catastrophe.
+              </p>
+            </div>
+          </details>
+
+          <p class="citation">
+            Sources: <a href="https://www.ncbi.nlm.nih.gov/books/NBK219165/" target="_blank">NCBI Nuclear War Study</a>,
+            <a href="https://thebulletin.org/doomsday-clock/2025-statement/" target="_blank">Doomsday Clock 2025</a>
+          </p>
+        </section>
+
+        <!-- Ecological Crisis -->
+        <section id="ecological-crisis" class="card fade-in">
+          <div class="card-header">
+            <h2>Ecological Collapse Tracks Urban Patterns</h2>
+            <span class="badge">🌱 Environmental</span>
+          </div>
+
+          <p>
+            The planetary ecological crisis and nuclear vulnerability share a common root: the concentration patterns
+            of industrial civilization create fragility across multiple domains simultaneously.
+          </p>
+
+          <h3>Biodiversity Collapse Statistics</h3>
+
+          <div class="callout callout-warning">
+            <h4>WWF Living Planet Report 2024</h4>
+            <p>
+              <strong>73% average decline</strong> in monitored wildlife populations between 1970 and 2020,
+              with freshwater populations declining <strong>85%</strong> and Latin America/Caribbean
+              experiencing <strong>95% decline</strong>.
+            </p>
+          </div>
+
+          <p>
+            The IPBES Global Assessment identifies <strong>1 million species threatened with extinction</strong>,
+            while humans and farm animals now constitute <strong>96% of all mammalian biomass on Earth</strong>.
+          </p>
+
+          <h3>Urban Expansion Impact</h3>
+
+          <p>
+            Research published in PNAS found that between 1992-2000, urban expansion caused loss of approximately
+            <strong>190,000 km² of habitat</strong>—equivalent to <strong>16% of total global habitat loss</strong>.
+          </p>
+
+          <details>
+            <summary>Soil Degradation Crisis</summary>
+            <div class="details-content">
+              <p>
+                The food system feeding concentrated urban populations simultaneously destroys the soil base sustaining it:
+              </p>
+              <ul>
+                <li>FAO reports <strong>33-52% of global soils are already degraded</strong></li>
+                <li>Projections suggest <strong>up to 90% could become degraded by 2050</strong></li>
+                <li>Industrial agriculture generates soil erosion at rates <strong>10-100 times higher than soil formation</strong></li>
+                <li>Since <strong>95% of global food production depends on soil</strong>, this represents a slow-motion catastrophe</li>
+              </ul>
+            </div>
+          </details>
+
+          <h3>Climate Resilience Analysis</h3>
+
+          <p>
+            Urban heat islands experience temperatures <strong>4-12°C higher</strong> than surrounding regions,
+            while centralized supply chains proved acutely vulnerable during COVID-19. Research confirms that
+            "distributed systems tend to be more resilient" than centralized alternatives.
+          </p>
+
+          <p class="citation">
+            Sources: <a href="https://www.arcticwwf.org/newsroom/news/wwf-living-planet-report-2024-a-planet-in-crisis/" target="_blank">WWF 2024</a>,
+            <a href="https://www.pnas.org/doi/10.1073/pnas.2117297119" target="_blank">PNAS Urban Expansion Study</a>
+          </p>
+        </section>
+
+        <!-- Viable Alternatives -->
+        <section id="viable-alternatives" class="card fade-in">
+          <div class="card-header">
+            <h2>Proven Bioregional Alternatives</h2>
+            <span class="badge">✅ Working Models</span>
+          </div>
+
+          <p>
+            The evidence for distributed settlement's regenerative capacity comes from both indigenous land management
+            and contemporary ecovillage projects demonstrating measurable outcomes.
+          </p>
+
+          <h3>Indigenous Land Management</h3>
+
+          <div class="callout callout-success">
+            <h4>Biodiversity Performance</h4>
+            <p>
+              Research spanning Australia, Brazil, and Canada found that "biodiversity was richest in
+              Indigenous-managed lands"—higher than both formally protected areas and random unprotected areas.
+            </p>
+          </div>
+
+          <p>
+            Indigenous Peoples manage approximately <strong>25% of Earth's land surface</strong> containing
+            much of the planet's remaining biodiversity, with <strong>36% of intact forests</strong>
+            under indigenous stewardship.
+          </p>
+
+          <h3>Contemporary Ecovillage Evidence</h3>
+
+          <details open>
+            <summary>Findhorn Ecovillage, Scotland</summary>
+            <div class="details-content">
+              <p>
+                With 500+ residents across 65 eco-buildings:
+              </p>
+              <ul>
+                <li>Ecological footprint: <strong>2.71 hectares per capita</strong> (half the UK average of 5.4)</li>
+                <li>Carbon footprint: <strong>7.1 tCO2e per capita</strong> vs UK average of 12.7</li>
+                <li>Four community-owned wind turbines supply <strong>100%+ of electricity needs</strong></li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>Global Ecovillage Network Survey</summary>
+            <div class="details-content">
+              <p>
+                Survey of 88 ecovillages worldwide documents remarkable consistency:
+              </p>
+              <ul>
+                <li><strong>97%</strong> actively work to restore degraded ecosystems</li>
+                <li><strong>90%</strong> sequester carbon in soil and/or biomass</li>
+                <li><strong>97%</strong> work to restore or replenish water sources</li>
+                <li><strong>90%</strong> have women in 40%+ of decision-making roles</li>
+                <li><strong>85%</strong> compost all food waste</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>Transition Towns Movement</summary>
+            <div class="details-content">
+              <p>
+                Originating in Totnes, UK in 2006, now spread to thousands of initiatives worldwide:
+              </p>
+              <ul>
+                <li>Totnes households save an average of <strong>£570/year in energy costs</strong></li>
+                <li>Estimated <strong>£122,000 annual economic contribution</strong> from transition-related visitors</li>
+                <li>Demonstrates viability of localized economic development</li>
+              </ul>
+            </div>
+          </details>
+
+          <h3>Finland's National Model</h3>
+
+          <p>
+            Finland's rural policy framework, operating since 1997, offers the most developed national model.
+            Finland combines comprehensive "broad" rural policy with "total defense" thinking recognizing
+            distributed population as strategic resilience.
+          </p>
+
+          <div class="callout callout-info">
+            <h4>Finland Results</h4>
+            <p>
+              Over <strong>40% of Finland's population</strong> remains in rural municipalities.
+              Rural regions recorded <strong>higher GDP per capita growth than national averages</strong>
+              from 2001-2021, demonstrating that distributed settlement can drive prosperity.
+            </p>
+          </div>
+
+          <p class="citation">
+            Sources: <a href="https://www.sciencedaily.com/releases/2019/07/190731102157.htm" target="_blank">Indigenous Biodiversity Study</a>,
+            <a href="https://ecovillagefindhorn.com/" target="_blank">Findhorn Ecovillage</a>
+          </p>
+        </section>
+
+        <!-- Policy Instruments -->
+        <section id="policy-instruments" class="card fade-in">
+          <div class="card-header">
+            <h2>Available Policy Instruments</h2>
+            <span class="badge">🛠️ Implementation Ready</span>
+          </div>
+
+          <p>
+            Politicians have access to proven policy mechanisms requiring no new conceptual frameworks—
+            only political will to deploy existing tools at scale.
+          </p>
+
+          <h3>Tax Incentives</h3>
+
+          <details open>
+            <summary>Rural Opportunity Zones</summary>
+            <div class="details-content">
+              <p>
+                The 2025 legislation creates "Qualified Rural Opportunity Funds" with:
+              </p>
+              <ul>
+                <li>Enhanced <strong>30% basis step-up</strong> after five years</li>
+                <li>Lowered improvement thresholds</li>
+                <li>Targeting agriculture, water infrastructure, and manufacturing onshoring</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>Remote Worker Incentives</summary>
+            <div class="details-content">
+              <p>
+                Programs demonstrating immediate feasibility and measurable results:
+              </p>
+              <ul>
+                <li>
+                  <strong>Tulsa Remote:</strong> $10,000 relocation package recruits ~700 households annually
+                  with <strong>90% retention after year one</strong>
+                </li>
+                <li><strong>West Virginia Ascend WV:</strong> $12,000 over two years</li>
+                <li>
+                  Analysis estimates <strong>$100,000 of new income generates $83,000</strong>
+                  in new economic output annually
+                </li>
+              </ul>
+            </div>
+          </details>
+
+          <h3>Zoning Reform</h3>
+
+          <p>
+            Recent state-level breakthroughs demonstrate political viability:
+          </p>
+
+          <ul>
+            <li><strong>Oregon (2019):</strong> Eliminated single-family zoning for mid-to-large cities statewide</li>
+            <li><strong>California (2021):</strong> Similar comprehensive legislation</li>
+            <li><strong>Connecticut (2021):</strong> Eliminated caps on multifamily housing, legalized ADUs statewide</li>
+            <li>
+              <strong>Massachusetts (2021):</strong> MBTA Communities law tied state infrastructure funding
+              to by-right multifamily housing
+            </li>
+            <li><strong>Utah (2022):</strong> Incentivized zoning reform through state funding mechanisms</li>
+          </ul>
+
+          <h3>Infrastructure Investment</h3>
+
+          <details>
+            <summary>Distributed Energy Systems</summary>
+            <div class="details-content">
+              <p>
+                DOE's 2024 Community Microgrid Assistance Partnership targets remote and underserved communities
+                for distributed renewable energy development, including Alaska's 187 standalone power systems.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Regional Food Hubs</summary>
+            <div class="details-content">
+              <p>
+                USDA programs support the <strong>242+ food hubs</strong> operating across the U.S.,
+                aggregating small producer outputs and providing access to institutional buyers.
+              </p>
+            </div>
+          </details>
+
+          <h3>Cross-Partisan Framing</h3>
+
+          <div class="callout callout-info">
+            <h4>Coalition Building Strategy</h4>
+            <p>
+              The distributed development agenda can attract supporters across the political spectrum
+              by emphasizing different benefits to different constituencies:
+            </p>
+            <ul>
+              <li><strong>Conservatives:</strong> National security, total defense, strategic resilience</li>
+              <li><strong>Progressives:</strong> Environmental sustainability, climate resilience, ecological footprint reduction</li>
+              <li><strong>Libertarians:</strong> Property rights, local autonomy, anti-government-concentration</li>
+              <li><strong>Cross-demographic:</strong> Affordable housing, economic opportunity, quality of life</li>
+            </ul>
+          </div>
+
+          <p class="citation">
+            Sources: <a href="https://www.flexjobs.com/blog/post/economic-development-programs-remote-workers" target="_blank">Remote Worker Programs</a>,
+            <a href="https://eig.org/the-era-of-federal-zoning-reform-has-arrived/" target="_blank">Zoning Reform Analysis</a>
+          </p>
+        </section>
+
+        <!-- Implementation -->
+        <section id="implementation" class="card fade-in">
+          <div class="card-header">
+            <h2>Phased Implementation Pathway</h2>
+            <span class="badge">📋 Action Plan</span>
+          </div>
+
+          <p>
+            A careful sequencing approach can achieve distributed development without destabilizing existing systems,
+            drawing on OECD guidance and transition economy research.
+          </p>
+
+          <h3>Phase 1: Foundation Building (Years 1-3)</h3>
+
+          <p>Establish enabling conditions before large-scale population movement:</p>
+
+          <ul>
+            <li>Broadband deployment to underserved areas (96% access exists but gaps remain critical)</li>
+            <li>Healthcare telemedicine infrastructure</li>
+            <li>Educational access through remote and hybrid models</li>
+            <li>Basic service delivery capacity assessment</li>
+            <li>Local governance capacity building programs</li>
+          </ul>
+
+          <h3>Phase 2: Incentive Deployment (Years 3-7)</h3>
+
+          <p>Create pull factors through positive incentives rather than mandates:</p>
+
+          <ul>
+            <li>Rural Opportunity Zone tax benefits at scale</li>
+            <li>Remote worker relocation programs expansion</li>
+            <li>Distributed renewable energy investment</li>
+            <li>Regional food hub infrastructure</li>
+            <li>Small-scale manufacturing incentives for onshoring critical supply chains</li>
+          </ul>
+
+          <h3>Phase 3: Structural Reform (Years 5-10)</h3>
+
+          <p>Address regulatory and zoning barriers once political momentum builds:</p>
+
+          <ul>
+            <li>Statewide zoning reform following Oregon/California models</li>
+            <li>Federal infrastructure investment reorientation</li>
+            <li>Agricultural policy reform supporting regenerative practices</li>
+            <li>Land reform mechanisms preventing speculation-driven displacement</li>
+          </ul>
+
+          <h3>Phase 4: Systemic Integration (Years 8-15)</h3>
+
+          <p>Institutionalize bioregional governance:</p>
+
+          <ul>
+            <li>Watershed-based planning frameworks</li>
+            <li>Bioregional economic development zones</li>
+            <li>Total defense integration with distributed settlement</li>
+            <li>International coordination on resilience standards</li>
+          </ul>
+
+          <h3>Success Metrics</h3>
+
+          <div class="callout callout-success">
+            <h4>Measurement Framework</h4>
+            <p>
+              Success metrics should extend beyond GDP to include:
+            </p>
+            <ul>
+              <li>Population retention rates (Tulsa reports ~90% after year one)</li>
+              <li>Infrastructure gap closure</li>
+              <li>Local tax revenue generation</li>
+              <li>Economic diversification indices</li>
+              <li>Ecological footprint measures</li>
+              <li>Well-being indicators developed by OECD for place-based assessment</li>
+            </ul>
+          </div>
+
+          <h3>Risk Mitigation</h3>
+
+          <details>
+            <summary>Economic Disruption</summary>
+            <div class="details-content">
+              <p>
+                Maintain federal safety net floors while enabling local experimentation.
+                Revenue equalization transfers ensure baseline services.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Gentrification and Displacement</summary>
+            <div class="details-content">
+              <p>
+                Embed equity safeguards in development incentives. OECD recommends
+                "built-in mechanisms to address possible negative impacts of land value increases
+                on vulnerable and marginalized groups."
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Service Delivery Continuity</summary>
+            <div class="details-content">
+              <p>
+                Clear specification of which government level provides which services during transition periods,
+                with potential dual responsibility mechanisms preventing gaps.
+              </p>
+            </div>
+          </details>
+
+          <p class="citation">
+            Sources: <a href="https://www.oecd.org/en/publications/2019/03/making-decentralisation-work_g1g9faa7.html" target="_blank">OECD Decentralization Framework</a>,
+            <a href="https://www.brookings.edu/articles/why-the-us-needs-a-total-defense-strategy-based-on-resilience/" target="_blank">Brookings Total Defense Study</a>
+          </p>
+        </section>
+
+        <!-- Conclusion -->
+        <section id="conclusion" class="card fade-in">
+          <div class="card-header">
+            <h2>Conclusion: Choosing Resilience</h2>
+            <span class="badge">💡 Synthesis</span>
+          </div>
+
+          <p>
+            The policy establishment has treated urbanization as inevitable progress for over a century.
+            This analysis demonstrates that population concentration represents instead a compounding strategic liability—
+            making populations vulnerable to nuclear attack, accelerating ecological collapse, and creating
+            fragile supply chains susceptible to cascading failure.
+          </p>
+
+          <div class="callout callout-info">
+            <h4>The Alternative: Strategic Resilience</h4>
+            <p>
+              <strong>Distributed bioregional development simultaneously addresses nuclear vulnerability,
+              ecological regeneration, food system resilience, and democratic revitalization.</strong>
+            </p>
+          </div>
+
+          <h3>Three Key Insights</h3>
+
+          <details open>
+            <summary>1. Structural Linkage</summary>
+            <div class="details-content">
+              <p>
+                The nuclear and ecological crises are structurally linked through concentration patterns—
+                addressing both requires addressing the underlying spatial organization of civilization
+                rather than treating symptoms separately.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>2. Reallocation, Not Sacrifice</summary>
+            <div class="details-content">
+              <p>
+                Distributed development is not economic sacrifice but reallocation toward genuine resilience.
+                The efficiency gains from agglomeration come at the cost of catastrophic vulnerability
+                that conventional economic analysis ignores.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>3. Democratic Alignment</summary>
+            <div class="details-content">
+              <p>
+                Citizen preferences already favor distributed living. When 48% of Americans prefer
+                rural or small-town settings but infrastructure and economic barriers prevent realization,
+                policy change aligns democratic preference with strategic necessity.
+              </p>
+            </div>
+          </details>
+
+          <div class="divider"></div>
+
+          <p style="font-size: 18px; line-height: 1.8; color: var(--text-primary); margin-top: 32px;">
+            <strong>The trajectory of the next century—whether toward catastrophic vulnerability or
+            regenerative resilience—will be determined by policy choices available today.</strong>
+            The evidence for distributed bioregional development is clear; what remains is political will to act on it.
+          </p>
+
+          <div class="hero-cta" style="margin-top: 32px;">
+            <button class="btn btn-primary" id="shareConclusion">Share This Research</button>
+            <button class="btn" id="downloadPDF">Download Full Report</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <!-- Table of Contents -->
+        <div class="toc">
+          <h3>Table of Contents</h3>
+          <ul class="toc-list">
+            <li><a href="#executive-summary">Executive Summary</a></li>
+            <li><a href="#nuclear-vulnerability">Nuclear Vulnerability</a></li>
+            <li><a href="#ecological-crisis">Ecological Crisis</a></li>
+            <li><a href="#viable-alternatives">Viable Alternatives</a></li>
+            <li><a href="#policy-instruments">Policy Instruments</a></li>
+            <li><a href="#implementation">Implementation</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+          </ul>
+        </div>
+
+        <!-- Quick Actions Card -->
+        <div class="card" style="margin-top: 24px;">
+          <h3 style="margin-top: 0; font-size: 18px;">Quick Actions</h3>
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+            <button class="btn" id="printDoc">🖨️ Print Document</button>
+            <button class="btn" id="toggleNotes">📝 Add Notes</button>
+            <button class="btn" id="bookmarkPage">🔖 Bookmark</button>
+          </div>
+        </div>
+
+        <!-- Status Card -->
+        <div class="card" style="margin-top: 24px;">
+          <h3 style="margin-top: 0; font-size: 18px;">Reading Status</h3>
+          <p style="font-size: 14px; color: var(--text-secondary); margin-top: 12px;">
+            Progress is saved locally. No accounts. No analytics.
+          </p>
+          <div style="margin-top: 16px; padding: 12px; background: rgba(138, 230, 255, 0.1); border-radius: var(--radius-sm);">
+            <div style="font-size: 13px; color: var(--text-tertiary); margin-bottom: 4px;">Offline Status</div>
+            <div style="font-size: 14px; font-weight: 600; color: var(--accent-cyan);" id="offlineStatus">
+              ✅ Fully Functional
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>About This Document</h4>
+          <p>
+            This evidence-based policy framework synthesizes research from academic institutions,
+            think tanks, UN agencies, and successful pilot projects to present the case for
+            distributed bioregional development.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Key Principles</h4>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin: 8px 0;">🛡️ Zero-harm framework</li>
+            <li style="margin: 8px 0;">🌱 Regenerative design</li>
+            <li style="margin: 8px 0;">🔬 Evidence-based policy</li>
+            <li style="margin: 8px 0;">🌍 Planetary stewardship</li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <p>
+            All citations link to original sources. This document is designed for permanence—
+            fully functional offline, no external dependencies, no tracking.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div style="margin-bottom: 16px; padding: 20px; background: rgba(138, 230, 255, 0.08); border-radius: var(--radius-md); text-align: left;">
+          <h4 style="margin: 0 0 12px; font-size: 14px; color: var(--text-primary);">
+            Zero-Harm & Anti-Coercion Note
+          </h4>
+          <p style="font-size: 13px; line-height: 1.6; margin: 0;">
+            This document is designed to inform policy decisions through evidence and reasoned argument,
+            not through manipulation or coercion. It contains no hidden tracking, no external dependencies,
+            and respects user autonomy completely. All state is local. All interpretation is voluntary.
+            This work upholds planetary wellbeing, human dignity, and transparent collaboration.
+          </p>
+        </div>
+
+        <p>
+          Created by Foster + Navi • Part of the Planetary Restoration Archive •
+          <a href="https://planetaryrestorationarchive.com" target="_blank">planetaryrestorationarchive.com</a>
+        </p>
+        <p style="margin-top: 8px;">
+          Built as an offline-capable, archival-quality civic reflection artifact.
+          Share thoughtfully. Modify freely. Leave systems better than you found them.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ==========================================================================
+       PARTICLE ANIMATION SYSTEM
+       Purpose: Photorealistic atmospheric effects
+       ========================================================================== */
+    (function initParticles() {
+      const canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      const particles = [];
+      const particleCount = 80;
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      class Particle {
+        constructor() {
+          this.reset();
+          this.y = Math.random() * canvas.height;
+        }
+
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = -10;
+          this.z = Math.random() * 10;
+          this.size = (10 - this.z) / 10;
+          this.speed = (10 - this.z) / 50 + 0.1;
+          this.opacity = (10 - this.z) / 20 + 0.1;
+          this.twinkle = Math.random() * Math.PI * 2;
+          this.twinkleSpeed = Math.random() * 0.02 + 0.01;
+        }
+
+        update() {
+          this.y += this.speed;
+          this.twinkle += this.twinkleSpeed;
+
+          if (this.y > canvas.height + 10) {
+            this.reset();
+          }
+        }
+
+        draw() {
+          const twinkleOpacity = this.opacity * (0.7 + Math.sin(this.twinkle) * 0.3);
+
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${twinkleOpacity})`;
+          ctx.fill();
+
+          // Glow effect
+          const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 3);
+          gradient.addColorStop(0, `rgba(138, 230, 255, ${twinkleOpacity * 0.3})`);
+          gradient.addColorStop(1, 'rgba(138, 230, 255, 0)');
+          ctx.fillStyle = gradient;
+          ctx.fillRect(this.x - this.size * 3, this.y - this.size * 3, this.size * 6, this.size * 6);
+        }
+      }
+
+      function init() {
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach(particle => {
+          particle.update();
+          particle.draw();
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      resize();
+      window.addEventListener('resize', resize);
+      init();
+      animate();
+    })();
+
+    /* ==========================================================================
+       THEME MANAGEMENT
+       ========================================================================== */
+    (function initTheme() {
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const html = document.documentElement;
+
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      html.setAttribute('data-theme', savedTheme);
+      themeIcon.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+
+      themeToggle?.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        themeIcon.textContent = next === 'light' ? '🌙' : '☀️';
+      });
+    })();
+
+    /* ==========================================================================
+       TABLE OF CONTENTS ACTIVE STATE
+       ========================================================================== */
+    (function initTOC() {
+      const tocLinks = document.querySelectorAll('.toc-list a');
+      const sections = document.querySelectorAll('section[id]');
+
+      function updateActive() {
+        const scrollPos = window.scrollY + 100;
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          const sectionId = section.getAttribute('id');
+
+          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            tocLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${sectionId}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActive);
+      updateActive();
+    })();
+
+    /* ==========================================================================
+       PROGRESS SAVING
+       ========================================================================== */
+    (function initProgress() {
+      const saveBtn = document.getElementById('saveProgress');
+
+      function saveProgress() {
+        const progress = {
+          timestamp: new Date().toISOString(),
+          scrollPosition: window.scrollY,
+          theme: document.documentElement.getAttribute('data-theme')
+        };
+
+        localStorage.setItem('bioregional_progress', JSON.stringify(progress));
+
+        // Visual feedback
+        const originalText = saveBtn.textContent;
+        saveBtn.textContent = '✅ Progress Saved';
+        saveBtn.style.background = 'rgba(184, 255, 138, 0.2)';
+        saveBtn.style.borderColor = 'var(--accent-green)';
+
+        setTimeout(() => {
+          saveBtn.textContent = originalText;
+          saveBtn.style.background = '';
+          saveBtn.style.borderColor = '';
+        }, 2000);
+      }
+
+      saveBtn?.addEventListener('click', saveProgress);
+
+      // Auto-save every 5 minutes
+      setInterval(saveProgress, 300000);
+
+      // Restore progress on load
+      try {
+        const saved = JSON.parse(localStorage.getItem('bioregional_progress'));
+        if (saved && Date.now() - new Date(saved.timestamp) < 86400000) { // 24 hours
+          setTimeout(() => {
+            window.scrollTo({ top: saved.scrollPosition, behavior: 'smooth' });
+          }, 100);
+        }
+      } catch (e) {
+        console.log('No saved progress found');
+      }
+    })();
+
+    /* ==========================================================================
+       SHARE FUNCTIONALITY
+       ========================================================================== */
+    (function initShare() {
+      const shareBtn = document.getElementById('shareBtn');
+      const shareConclusionBtn = document.getElementById('shareConclusion');
+
+      async function share() {
+        const shareData = {
+          title: 'Bioregional Development: Strategic Resilience for the 21st Century',
+          text: 'Urban concentration creates dual catastrophic risks. Distributed bioregional development offers a transformative solution.',
+          url: window.location.href
+        };
+
+        try {
+          if (navigator.share) {
+            await navigator.share(shareData);
+          } else {
+            await navigator.clipboard.writeText(window.location.href);
+            alert('Link copied to clipboard!');
+          }
+        } catch (err) {
+          console.log('Share failed:', err);
+        }
+      }
+
+      shareBtn?.addEventListener('click', share);
+      shareConclusionBtn?.addEventListener('click', share);
+    })();
+
+    /* ==========================================================================
+       PRINT FUNCTIONALITY
+       ========================================================================== */
+    (function initPrint() {
+      const printBtn = document.getElementById('printDoc');
+
+      printBtn?.addEventListener('click', () => {
+        window.print();
+      });
+    })();
+
+    /* ==========================================================================
+       DOWNLOAD FUNCTIONALITY
+       ========================================================================== */
+    (function initDownload() {
+      const downloadBtns = [
+        document.getElementById('downloadBtn'),
+        document.getElementById('downloadPDF')
+      ];
+
+      function download() {
+        alert('PDF generation would be implemented with a server-side service or client-side library like jsPDF in production. For now, use Print to PDF from your browser.');
+        window.print();
+      }
+
+      downloadBtns.forEach(btn => {
+        btn?.addEventListener('click', download);
+      });
+    })();
+
+    /* ==========================================================================
+       FADE-IN ANIMATION ON SCROLL
+       ========================================================================== */
+    (function initAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        observer.observe(el);
+      });
+    })();
+
+    /* ==========================================================================
+       OFFLINE STATUS
+       ========================================================================== */
+    (function initOfflineStatus() {
+      const statusEl = document.getElementById('offlineStatus');
+
+      function updateStatus() {
+        if (navigator.onLine) {
+          statusEl.textContent = '✅ Fully Functional';
+          statusEl.style.color = 'var(--accent-green)';
+        } else {
+          statusEl.textContent = '📡 Offline Mode Active';
+          statusEl.style.color = 'var(--accent-cyan)';
+        }
+      }
+
+      window.addEventListener('online', updateStatus);
+      window.addEventListener('offline', updateStatus);
+      updateStatus();
+    })();
+
+    /* ==========================================================================
+       CONSOLE MESSAGE
+       ========================================================================== */
+    console.log('%cBioregional Development Platform', 'font-size: 20px; font-weight: bold; color: #8AE6FF;');
+    console.log('%cBuilt by Foster + Navi for planetary restoration', 'font-size: 12px; color: #B8FF8A;');
+    console.log('%cNo tracking • No analytics • Full offline capability', 'font-size: 11px; color: #999;');
+    console.log('Source: https://planetaryrestorationarchive.com');
+  </script>
+</body>
+</html>
